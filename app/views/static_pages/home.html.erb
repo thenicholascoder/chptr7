@@ -1,0 +1,18 @@
+<% provide(:title, "Home") %>
+<div class="container">
+  <div class="home">
+  <div class="home_container home_jumbotron center jumbotron">
+    <h1 class="home_title">Welcome to the Sample App</h1>
+    <h2 class="home_subtitle">
+      This is the home page for the
+      <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+    <div class="button">
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary button_home" %>
+    </div>
+  </div>
+  <%= image_tag 'rails.svg', class: 'home_rails', alt: 'Rails logo' %>
+  <%= image_tag 'kitten.png', class: 'home_kitten', alt: 'Kitten' %>
+</div>
+</div>
