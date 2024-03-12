@@ -16578,3 +16578,1426 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 2.2ms | Allocations: 32496)
 
 
+Started GET "/" for 127.0.0.1 at 2024-03-11 20:05:34 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 234.0ms | Allocations: 47032)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 449)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 309.6ms | Allocations: 73489)
+Completed 200 OK in 325ms (Views: 313.9ms | ActiveRecord: 0.0ms | Allocations: 77683)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-11 20:05:36 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1593)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 9113)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 9589)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-11 20:05:43 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 211)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1902)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 9420)
+Completed 200 OK in 42ms (Views: 13.9ms | ActiveRecord: 2.2ms | Allocations: 25086)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-11 20:05:44 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 8003)
+Completed 422 Unprocessable Entity in 40ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 11626)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-11 20:05:54 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 227ms (ActiveRecord: 0.2ms | Allocations: 1061)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-11 20:05:54 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 270)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 554)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 8327)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 9654)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-11 20:05:57 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 1ms (ActiveRecord: 0.0ms | Allocations: 366)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-11 20:05:57 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1030)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 8552)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8841)
+
+
+Started GET "/help" for 127.0.0.1 at 2024-03-11 21:09:27 +0800
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.4ms | Allocations: 116)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 7831)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 8150)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-11 21:09:27 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1030)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8575)
+Completed 200 OK in 23ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 8862)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-11 21:09:28 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 547)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 8058)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 8310)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-11 21:09:33 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 990)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 8501)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 8771)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-11 21:09:35 +0800
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 8.0ms | Allocations: 2224)
+  Rendered users/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 5708)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 13301)
+Completed 422 Unprocessable Entity in 33ms (Views: 25.0ms | ActiveRecord: 3.8ms | Allocations: 16931)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 09:44:17 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 184.2ms | Allocations: 32733)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 445)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 239.7ms | Allocations: 59176)
+Completed 200 OK in 258ms (Views: 246.3ms | ActiveRecord: 0.0ms | Allocations: 63370)
+
+
+Started GET "/help" for 127.0.0.1 at 2024-03-12 09:44:18 +0800
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.7ms | Allocations: 118)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 8002)
+Completed 200 OK in 23ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 8325)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 09:44:18 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1603)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 9117)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.0ms | Allocations: 9589)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-12 09:44:25 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 211)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1893)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 9415)
+Completed 200 OK in 57ms (Views: 18.2ms | ActiveRecord: 2.7ms | Allocations: 25073)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-12 09:44:36 +0800
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Mark Miller", "email"=>"markmiller@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "markmiller@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 471)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1783)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 91)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 9416)
+Completed 422 Unprocessable Entity in 288ms (Views: 13.7ms | ActiveRecord: 1.6ms | Allocations: 15410)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-12 09:44:40 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.6ms | Allocations: 119)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 7811)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8129)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 09:44:40 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 547)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8057)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 8308)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 09:44:51 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"markmiller@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "markmiller@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 302 Found in 248ms (ActiveRecord: 0.2ms | Allocations: 1319)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2024-03-12 09:44:51 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 266)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 554)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 8459)
+Completed 200 OK in 36ms (Views: 27.5ms | ActiveRecord: 0.2ms | Allocations: 9786)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 09:45:04 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2ms (ActiveRecord: 0.0ms | Allocations: 354)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 09:45:04 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 8619)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 8911)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-12 09:45:08 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 981)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8491)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 8757)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRememberDigestToUsers (20240312014735)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240312014735') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/login" for 127.0.0.1 at 2024-03-12 10:30:59 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 898)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 421)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 25956)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.0ms | Allocations: 26884)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 10:31:07 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"markmiller@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "markmiller@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-12 02:31:08.098235"], ["id", 2]]
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 302 Found in 527ms (ActiveRecord: 9.6ms | Allocations: 7980)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2024-03-12 10:31:08 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 213)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 545)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 8537)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 10020)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 10:31:13 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1206)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 525)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 9283)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms | Allocations: 9795)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2024-03-12 10:31:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 8199)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 8822)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 10:31:23 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2ms (ActiveRecord: 0.1ms | Allocations: 889)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 10:31:23 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1033)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8596)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8886)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:20:29 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1273)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 426)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 889.3ms | Allocations: 84343)
+Completed 200 OK in 892ms (Views: 891.1ms | ActiveRecord: 0.0ms | Allocations: 85303)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:20:35 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1023)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 8552)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 8838)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:20:35 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1017)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 8668)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms | Allocations: 8953)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 11:20:36 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1166)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 8795)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 9266)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-12 11:20:38 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.4ms | Allocations: 113)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7809)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 8126)
+
+
+Started GET "/help" for 127.0.0.1 at 2024-03-12 11:20:38 +0800
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.4ms | Allocations: 114)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7795)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8112)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:20:38 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1024)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8678)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 8965)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:20:51 +0800
+Processing by StaticPagesController#home as */*
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1083)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 10105)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 10496)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 11:23:41 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 634)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 8288)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8538)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 11:23:54 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"markmiller@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "markmiller@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-12 03:23:54.947059"], ["id", 2]]
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 302 Found in 450ms (ActiveRecord: 3.6ms | Allocations: 15786)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2024-03-12 11:23:54 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 210)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 545)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8477)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 9961)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 11:24:05 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 876)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:24:05 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1024)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 8690)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 8979)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 11:24:06 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 655)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 8168)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 8419)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 11:24:21 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 640)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 8269)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 8521)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 11:24:37 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-12 03:24:37.766067"], ["id", 1]]
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 437ms (ActiveRecord: 1.0ms | Allocations: 2539)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 11:24:37 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 527)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 8232)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.1ms | Allocations: 8857)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 11:27:44 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2ms (ActiveRecord: 0.1ms | Allocations: 870)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:27:44 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 8539)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 8828)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-12 11:36:51 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 199)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1597)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 94)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 9251)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 9594)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 11:36:53 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 10.9ms | Allocations: 1031)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 8572)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 8858)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-12 11:37:46 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 7719)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 7970)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 11:37:46 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 655)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 8170)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 8422)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 11:37:57 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 468)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 7997)
+Completed 422 Unprocessable Entity in 26ms (Views: 18.9ms | ActiveRecord: 3.2ms | Allocations: 9133)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 11:38:07 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 233ms (ActiveRecord: 0.6ms | Allocations: 893)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 11:38:08 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 8152)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 8809)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 12:34:43 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 12ms (ActiveRecord: 6.0ms | Allocations: 5592)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 12:34:44 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1269)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 26372)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.0ms | Allocations: 27376)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:06 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1273)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 422)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 26275)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 27238)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 13:26:07 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1021)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8581)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 9054)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 13:26:17 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 243ms (ActiveRecord: 3.6ms | Allocations: 5283)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 13:26:17 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 208)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 545)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 8453)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 9939)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:24 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1031)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 8442)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 8728)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 13:26:25 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 637)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 8203)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 8456)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 13:26:28 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 468)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 8134)
+Completed 422 Unprocessable Entity in 233ms (Views: 13.3ms | ActiveRecord: 0.1ms | Allocations: 9022)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 13:26:37 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 219ms (ActiveRecord: 0.1ms | Allocations: 886)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 13:26:37 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 8264)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 8889)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 13:26:40 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2ms (ActiveRecord: 0.1ms | Allocations: 838)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:40 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 8559)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 8848)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:46 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1018)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 515)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 9118)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.1ms | Allocations: 9405)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:47 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1023)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 514)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 9016)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms | Allocations: 9302)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:48 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1017)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 515)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8966)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.1ms | Allocations: 9253)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:26:49 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1017)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 515)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 9014)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.1ms | Allocations: 9299)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 13:27:13 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2ms (ActiveRecord: 0.1ms | Allocations: 842)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:27:13 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1027)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 8616)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 8905)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:27:16 +0800
+Processing by StaticPagesController#home as */*
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1017)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 8829)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 9561)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 13:47:16 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 649)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8233)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 8485)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 13:47:26 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 241ms (ActiveRecord: 8.9ms | Allocations: 1158)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 13:47:26 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 8151)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 8808)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:47:27 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 11.6ms | Allocations: 1024)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 515)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 8985)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.1ms | Allocations: 9272)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:47:29 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1025)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 514)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 9057)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.1ms | Allocations: 9344)
+
+
+Started DELETE "/logout?_method=delete" for 127.0.0.1 at 2024-03-12 13:47:32 +0800
+Processing by SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 2ms (ActiveRecord: 0.1ms | Allocations: 834)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:47:32 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1019)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 8531)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 8820)
+
+
+Started GET "/help" for 127.0.0.1 at 2024-03-12 13:47:33 +0800
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.7ms | Allocations: 118)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 7847)
+Completed 200 OK in 21ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 8179)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:47:33 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1026)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 8648)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 8935)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:47:36 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1022)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 8558)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 8845)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-12 13:47:37 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 199)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1585)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 94)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 9102)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 9444)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-12 13:47:39 +0800
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.9ms | Allocations: 2152)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 5628)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 94)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 13180)
+Completed 422 Unprocessable Entity in 25ms (Views: 18.4ms | ActiveRecord: 1.0ms | Allocations: 16196)
+
+
+Started GET "/help" for 127.0.0.1 at 2024-03-12 13:47:39 +0800
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 7721)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 7973)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 13:47:40 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1025)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 8534)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms | Allocations: 8821)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-12 13:49:45 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.5ms | Allocations: 117)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7792)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8109)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 13:49:45 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 649)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8196)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 8449)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 13:49:59 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mUser Update (2.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-12 05:49:59.700086"], ["id", 1]]
+  ↳ app/models/user.rb:32:in `remember'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:32:in `remember'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 461ms (ActiveRecord: 2.9ms | Allocations: 2630)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 13:49:59 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 37.4ms | Allocations: 8204)
+Completed 200 OK in 44ms (Views: 37.9ms | ActiveRecord: 0.3ms | Allocations: 8830)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9999], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:12:46 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 8443)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 8727)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 14:12:48 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 640)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 8162)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 8414)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 14:12:57 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 225ms (ActiveRecord: 13.7ms | Allocations: 1180)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 14:12:57 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 8164)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 8822)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:12:59 +0800
+Processing by StaticPagesController#home as */*
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 8444)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 8733)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 14:13:26 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 7623)
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.1ms | Allocations: 8244)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 14:13:27 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 631)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 8153)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 8405)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 14:13:38 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 223ms (ActiveRecord: 0.1ms | Allocations: 872)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 14:13:38 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 527)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 8149)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 8775)
+
+
+Started GET "/help" for 127.0.0.1 at 2024-03-12 14:13:43 +0800
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 528)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 8148)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.1ms | Allocations: 8400)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:15:56 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 8442)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 8727)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:15:56 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1018)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 8426)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 8711)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:16:00 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1018)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 8428)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 8712)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 14:16:03 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 655)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8177)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 8429)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:16:21 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8560)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8844)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:16:24 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1019)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8532)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8816)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-12 14:16:34 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 649)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 8167)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 8419)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-12 14:16:43 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"johnsmith@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnsmith@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 225ms (ActiveRecord: 0.1ms | Allocations: 893)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2024-03-12 14:16:44 +0800
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 526)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 8164)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.1ms | Allocations: 8790)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:16:46 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1032)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 514)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 8991)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.1ms | Allocations: 9277)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:16:47 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1018)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 514)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 8959)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 9245)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:17:05 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 9098)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.0ms | Allocations: 9394)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-12 14:17:18 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1020)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 8533)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 8818)
+
+
