@@ -9,6 +9,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     @non_admin = users(:archer)
   end
 
+
   # test "index including pagination" do
   #   log_in(@user)
   #   get users_path
