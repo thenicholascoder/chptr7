@@ -1,0 +1,8 @@
+# Ignore log files
+log/*.log
+
+# Ignore temporary files
+tmp/*
+
+# Ignore cache directories
+tmp/cache/
