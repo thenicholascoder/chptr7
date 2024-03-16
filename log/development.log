@@ -29974,3 +29974,347 @@ Processing by StaticPagesController#home as TURBO_STREAM
 Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 8467)
 
 
+Started GET "/" for 127.0.0.1 at 2024-03-16 15:31:48 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2561)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2687)
+Completed 500 Internal Server Error in 274ms (ActiveRecord: 0.0ms | Allocations: 286564)
+
+
+  
+ActionView::Template::Error (Permission denied @ apply2files - /Users/nicoiscoding/Documents/github/fs2-v3/chptr8/tmp/cache/assets/sprockets/v4.0.0/tZ/tZ6OoyxeVvOBhHz7Gv-plrXWGajGH2lb2W4d5B4fs4o.cache):
+    12:       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary button_home" %>
+    13:     </div>
+    14:   </div>
+    15:   <%= image_tag 'rails.svg', class: 'home_rails', alt: 'Rails logo' %>
+    16:   <%= image_tag 'kitten.png', class: 'home_kitten', alt: 'Kitten' %>
+    17: </div>
+    18: </div>
+  
+app/views/static_pages/home.html.erb:15
+Started GET "/" for 127.0.0.1 at 2024-03-16 15:33:28 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1494)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1585)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1857)
+
+
+  
+ActionView::Template::Error (Permission denied @ apply2files - /Users/nicoiscoding/Documents/github/fs2-v3/chptr8/tmp/cache/assets/sprockets/v4.0.0/tZ/tZ6OoyxeVvOBhHz7Gv-plrXWGajGH2lb2W4d5B4fs4o.cache):
+    12:       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary button_home" %>
+    13:     </div>
+    14:   </div>
+    15:   <%= image_tag 'rails.svg', class: 'home_rails', alt: 'Rails logo' %>
+    16:   <%= image_tag 'kitten.png', class: 'home_kitten', alt: 'Kitten' %>
+    17: </div>
+    18: </div>
+  
+app/views/static_pages/home.html.erb:15
+Started GET "/" for 127.0.0.1 at 2024-03-16 15:34:07 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1042.5ms | Allocations: 105565)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 448)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 1079.7ms | Allocations: 131644)
+Completed 200 OK in 1366ms (Views: 1084.6ms | ActiveRecord: 0.0ms | Allocations: 415569)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-16 15:34:11 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.5ms | Allocations: 115)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7414)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 7738)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-16 15:34:11 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2024)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 9150)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 9644)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 106]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2024-03-16 15:34:47 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 211)
+  Rendered users/_form.html.erb (Duration: 3.3ms | Allocations: 1895)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2180)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 9456)
+Completed 200 OK in 66ms (Views: 15.1ms | ActiveRecord: 1.8ms | Allocations: 31453)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-16 15:35:00 +0800
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nicholas", "email"=>"thenicholashernandez@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_digest", "admin", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Nicholas"], ["email", "thenicholashernandez@gmail.com"], ["created_at", "2024-03-16 07:35:00.481425"], ["updated_at", "2024-03-16 07:35:00.481425"], ["password_digest", "[FILTERED]"], ["remember_digest", nil], ["admin", 0], ["activation_digest", "$2a$12$HP34d8B1jMvUDJsYhDH5Yeo05hkGc6aZrqvhRZQBHO74iEXClDPve"], ["activated", 0], ["activated_at", nil]]
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (Duration: 0.6ms | Allocations: 307)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.0ms | Allocations: 529)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (Duration: 0.5ms | Allocations: 178)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.0ms | Allocations: 374)
+UserMailer#account_activation: processed outbound mail in 8.8ms
+Delivered mail 65f54ba4b6a64_4db43fe87901a@nicoiscdingsmbp.mail (7.3ms)
+Date: Sat, 16 Mar 2024 15:35:00 +0800
+From: user@realdomain.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f54ba4b6a64_4db43fe87901a@nicoiscdingsmbp.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f54ba4b5f52_4db43fe878945";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f54ba4b5f52_4db43fe878945
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicholas,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://127.0.0.1:3000/account_activations/j_oNQAjEA9i4Pxc_tvJbAw/edit?email=thenicholashernandez%40gmail.com
+
+----==_mimepart_65f54ba4b5f52_4db43fe878945
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi Nicholas,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://127.0.0.1:3000/account_activations/j_oNQAjEA9i4Pxc_tvJbAw/edit?email=thenicholashernandez%40gmail.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_65f54ba4b5f52_4db43fe878945--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 507ms (ActiveRecord: 1.4ms | Allocations: 35971)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-16 15:35:00 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1030)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 8228)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 8564)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 107]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2024-03-16 15:37:44 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 223)
+  Rendered users/_form.html.erb (Duration: 15.0ms | Allocations: 4068)
+  Rendered users/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 4495)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 449)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 221.2ms | Allocations: 60523)
+Completed 200 OK in 614ms (Views: 227.4ms | ActiveRecord: 1.6ms | Allocations: 365644)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-16 15:37:57 +0800
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nicholas", "email"=>"thenicholashernandez@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_digest", "admin", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Nicholas"], ["email", "thenicholashernandez@gmail.com"], ["created_at", "2024-03-16 07:37:57.778311"], ["updated_at", "2024-03-16 07:37:57.778311"], ["password_digest", "[FILTERED]"], ["remember_digest", nil], ["admin", 0], ["activation_digest", "$2a$12$yD9b.bnq3kRSNALFxpyzKuO41hjrAeWvblTvsXb.VN572t36EfqVu"], ["activated", 0], ["activated_at", nil]]
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (Duration: 0.6ms | Allocations: 307)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.0ms | Allocations: 529)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (Duration: 0.3ms | Allocations: 178)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.7ms | Allocations: 374)
+UserMailer#account_activation: processed outbound mail in 9.8ms
+Delivered mail 65f54c56c6c8_4fc23fd4-3d0@nicoiscdingsmbp.mail (7.3ms)
+Date: Sat, 16 Mar 2024 15:37:58 +0800
+From: user@realdomain.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f54c56c6c8_4fc23fd4-3d0@nicoiscdingsmbp.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f54c56b991_4fc23fd4-471";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f54c56b991_4fc23fd4-471
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicholas,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://127.0.0.1:3000/account_activations/0pcQuvheg3cCOPNvgrvXHA/edit?email=thenicholashernandez%40gmail.com
+
+----==_mimepart_65f54c56b991_4fc23fd4-471
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi Nicholas,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://127.0.0.1:3000/account_activations/0pcQuvheg3cCOPNvgrvXHA/edit?email=thenicholashernandez%40gmail.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_65f54c56b991_4fc23fd4-471--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 507ms (ActiveRecord: 1.5ms | Allocations: 35905)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-16 15:37:58 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1261)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 1.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 8599)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms | Allocations: 9224)
+
+
+Started GET "/account_activations/0pcQuvheg3cCOPNvgrvXHA/edit?email=thenicholashernandez%40gmail.co" for 127.0.0.1 at 2024-03-16 15:38:34 +0800
+Processing by AccountActivationsController#edit as HTML
+  Parameters: {"email"=>"thenicholashernandez@gmail.co", "id"=>"0pcQuvheg3cCOPNvgrvXHA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.co"], ["LIMIT", 1]]
+  ↳ app/controllers/account_activations_controller.rb:3:in `edit'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1045)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-16 15:38:34 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1024)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 8231)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 8517)
+
+
+Started GET "/account_activations/0pcQuvheg3cCOPNvgrvXHA/edit?email=thenicholashernandez%40gmail.com" for 127.0.0.1 at 2024-03-16 15:38:45 +0800
+Processing by AccountActivationsController#edit as HTML
+  Parameters: {"email"=>"thenicholashernandez@gmail.com", "id"=>"0pcQuvheg3cCOPNvgrvXHA"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/account_activations_controller.rb:3:in `edit'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2024-03-16 07:38:45.710916"], ["id", 108]]
+  ↳ app/models/user.rb:67:in `activate'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:34:in `remember'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "remember_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-16 07:38:45.946074"], ["remember_digest", "$2a$12$SbrNPRVeWIyDPEb1DnSyAeycHaMb46L9Q0.K1eVKWFY37TYQs0yd2"], ["id", 108]]
+  ↳ app/models/user.rb:34:in `remember'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:34:in `remember'
+Redirected to http://127.0.0.1:3000/users/108
+Completed 302 Found in 486ms (ActiveRecord: 1.7ms | Allocations: 3037)
+
+
+Started GET "/users/108" for 127.0.0.1 at 2024-03-16 15:38:45 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"108"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 269)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 1221)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 8718)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.2ms | Allocations: 10048)
+
+
