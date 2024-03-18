@@ -30530,3 +30530,2650 @@ Processing by StaticPagesController#home as TURBO_STREAM
 Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 8508)
 
 
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 109]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2024-03-16 16:32:29 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1267)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 422)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 46.1ms | Allocations: 25776)
+Completed 200 OK in 52ms (Views: 49.2ms | ActiveRecord: 0.0ms | Allocations: 26925)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-16 16:32:30 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 996)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 8142)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 8631)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-16 16:32:32 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 199)
+  Rendered users/_form.html.erb (Duration: 4.1ms | Allocations: 1600)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1870)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 9040)
+Completed 200 OK in 26ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 14926)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-16 16:32:47 +0800
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nicholas", "email"=>"thenicholashernandez@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "remember_digest", "admin", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Nicholas"], ["email", "thenicholashernandez@gmail.com"], ["created_at", "2024-03-16 08:32:47.267680"], ["updated_at", "2024-03-16 08:32:47.267680"], ["password_digest", "[FILTERED]"], ["remember_digest", nil], ["admin", 0], ["activation_digest", "$2a$12$SR9Ugbm0Id/EJnyxaSvvh.1T7EMf3SBQ7S4VRK6hSyg9nSWQHSgVq"], ["activated", 0], ["activated_at", nil]]
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:40:in `create'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (Duration: 1.1ms | Allocations: 214)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.8ms | Allocations: 433)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (Duration: 1.0ms | Allocations: 173)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.7ms | Allocations: 368)
+UserMailer#account_activation: processed outbound mail in 11.7ms
+Delivered mail 65f5592f7aa0d_4fc23fe8120@nicoiscdingsmbp.mail (2.6ms)
+Date: Sat, 16 Mar 2024 16:32:47 +0800
+From: thenicholashernandez@gmail.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f5592f7aa0d_4fc23fe8120@nicoiscdingsmbp.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f5592f7a215_4fc23fe8069";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f5592f7a215_4fc23fe8069
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Nicholas,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://127.0.0.1:3000/account_activations/YwAJy9PZ2HVBOcnTtEkpMA/edit?email=thenicholashernandez%40gmail.com
+
+----==_mimepart_65f5592f7a215_4fc23fe8069
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi Nicholas,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://127.0.0.1:3000/account_activations/YwAJy9PZ2HVBOcnTtEkpMA/edit?email=thenicholashernandez%40gmail.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_65f5592f7a215_4fc23fe8069--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 468ms (ActiveRecord: 2.3ms | Allocations: 17434)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-16 16:32:47 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1029)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8203)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 8536)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-16 19:08:29 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2560)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2686)
+Completed 500 Internal Server Error in 466ms (ActiveRecord: 0.0ms | Allocations: 286540)
+
+
+  
+ActionView::Template::Error (Permission denied @ apply2files - /Users/nicoiscoding/Documents/github/fs2-v3/chptr8/tmp/cache/assets/sprockets/v4.0.0/tZ/tZ6OoyxeVvOBhHz7Gv-plrXWGajGH2lb2W4d5B4fs4o.cache):
+    12:       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary button_home" %>
+    13:     </div>
+    14:   </div>
+    15:   <%= image_tag 'rails.svg', class: 'home_rails', alt: 'Rails logo' %>
+    16:   <%= image_tag 'kitten.png', class: 'home_kitten', alt: 'Kitten' %>
+    17: </div>
+    18: </div>
+  
+app/views/static_pages/home.html.erb:15
+Started GET "/" for 127.0.0.1 at 2024-03-16 19:08:55 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1081.2ms | Allocations: 106351)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 448)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 1124.9ms | Allocations: 132419)
+Completed 200 OK in 1408ms (Views: 1130.1ms | ActiveRecord: 0.0ms | Allocations: 416321)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-16 19:09:03 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.5ms | Allocations: 115)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 7417)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 7752)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-16 19:09:03 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2036)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 9158)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 9649)
+
+
+Started POST "/login" for 127.0.0.1 at 2024-03-16 19:25:12 +0800
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"thenicholashernandez@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 272ms (ActiveRecord: 2.5ms | Allocations: 24742)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-16 19:25:12 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1022)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8201)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 8534)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddResetToUsers (20240318021757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_digest" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_sent_at" datetime(6)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240318021757') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-03-18 12:38:32 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 90.4ms | Allocations: 32611)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 448)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 126.9ms | Allocations: 57653)
+Completed 200 OK in 569ms (Views: 133.7ms | ActiveRecord: 0.0ms | Allocations: 341501)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 12:38:39 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/password_resets/new"):
+  
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 12:46:02 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1179)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1271)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2384)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `password_resets_path' for an instance of #<Class:0x00000001280f2a98>):
+    4: 
+    5:   <div class="row">
+    6:     <div class="col-md-6 col-md-offset-3">
+    7:       <%= form_with(url: password_resets_path, scope: :password_reset) do |f| %>
+    8:         <%= f.label :email %>
+    9:         <%= f.email_field :email, class: 'form-control' %>
+   10: 
+  
+app/views/password_resets/new.html.erb:7
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 12:48:56 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1329)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 428)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 65.2ms | Allocations: 26083)
+Completed 200 OK in 70ms (Views: 67.8ms | ActiveRecord: 0.0ms | Allocations: 27196)
+
+
+Started GET "/password_resets/ne" for 127.0.0.1 at 2024-03-18 12:49:47 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/password_resets/ne"):
+  
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 12:49:49 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 420)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 7729)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 7981)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 12:49:50 +0800
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PasswordResetsController):
+  
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9.1) lib/rack/etag.rb:29:in `call'
+rack (3.0.9.1) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9.1) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 12:49:50 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 424)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 7733)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 7980)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 12:49:54 +0800
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PasswordResetsController):
+  
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9.1) lib/rack/etag.rb:29:in `call'
+rack (3.0.9.1) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9.1) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 12:49:54 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 432)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7741)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 7988)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:13:48 +0800
+  
+SyntaxError (/Users/nicoiscoding/Documents/github/fs2-v3/chptr8/app/controllers/password_resets_controller.rb:10: syntax error, unexpected local variable or method, expecting `end' or dummy end
+...reset instructions" redirect_to root_url
+...                    ^~~~~~~~~~~
+):
+  
+app/controllers/password_resets_controller.rb:10: syntax error, unexpected local variable or method, expecting `end' or dummy end
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:15:31 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 63.3ms | Allocations: 703)
+  Rendered layouts/_header.html.erb (Duration: 17.4ms | Allocations: 426)
+  Rendered layouts/_footer.html.erb (Duration: 13.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 631.1ms | Allocations: 25434)
+Completed 200 OK in 682ms (Views: 654.0ms | ActiveRecord: 0.0ms | Allocations: 26546)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:15:43 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 114.2ms | Allocations: 7480)
+Completed 200 OK in 516ms (Views: 116.0ms | ActiveRecord: 83.7ms | Allocations: 18186)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:15:49 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 111.5ms | Allocations: 7430)
+Completed 200 OK in 165ms (Views: 148.7ms | ActiveRecord: 0.2ms | Allocations: 8289)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:23:58 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 29.7ms | Allocations: 1344)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 1436)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.0ms | Allocations: 2534)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil):
+     5:   <div class="row">
+     6:     <div class="col-md-6 col-md-offset-3">
+     7:       <%= form_with(url: password_resets_path, scope: :password_reset) do |f| %>
+     8:         <% if @user.errors.any? %>
+     9:           <div id="error_explanation">
+    10:             <div class="alert alert-danger">
+    11:               The form contains <%= pluralize(@user.errors.count, "error") %>.
+  
+app/views/password_resets/new.html.erb:8
+app/views/password_resets/new.html.erb:7
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:34:14 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 717)
+  Rendered layouts/_header.html.erb (Duration: 17.9ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 13.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 855.7ms | Allocations: 25422)
+Completed 200 OK in 903ms (Views: 887.0ms | ActiveRecord: 0.0ms | Allocations: 26537)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:34:31 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (16.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:78:in `create_reset_digest'
+  [1m[36mUser Update (13.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 05:34:34.739951"], ["reset_digest", "$2a$12$TSnh3mwdfFASYosenXDOWefBATXssonfD.y766Z/gkLw8i.3gKNH2"], ["id", 110]]
+  ↳ app/models/user.rb:78:in `create_reset_digest'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:78:in `create_reset_digest'
+Completed 500 Internal Server Error in 3476ms (ActiveRecord: 35.1ms | Allocations: 22431)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/user.rb:26:in `new_token'
+app/models/user.rb:78:in `create_reset_digest'
+app/controllers/password_resets_controller.rb:8:in `create'
+Started GET "/sessions/new" for 127.0.0.1 at 2024-03-18 13:37:38 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/sessions/new"):
+  
+Started GET "/login" for 127.0.0.1 at 2024-03-18 13:37:44 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1303)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8617)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 9104)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:37:46 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 435)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 7553)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 7802)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:38:25 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 435)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 7553)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 7802)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:40:13 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 7474)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 2.0ms | Allocations: 8678)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:40:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 7430)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.1ms | Allocations: 8265)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:40:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 7618)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 8459)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:40:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 7476)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.1ms | Allocations: 8313)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:40:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 7448)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 8309)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:40:17 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 7430)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 8267)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:42:42 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 7430)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.1ms | Allocations: 8265)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:43:00 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:78:in `create_reset_digest'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 05:43:00.271878"], ["reset_digest", "$2a$12$FVVw//fXyZTyTElcasGiUe8ZaJibup6Wh3ICC/l7c/fnRUT9B4BSS"], ["id", 110]]
+  ↳ app/models/user.rb:78:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:78:in `create_reset_digest'
+Completed 500 Internal Server Error in 242ms (ActiveRecord: 1.4ms | Allocations: 2671)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/user.rb:26:in `new_token'
+app/models/user.rb:78:in `create_reset_digest'
+app/controllers/password_resets_controller.rb:8:in `create'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:46:45 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 435)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 7742)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 7989)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:48:51 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 715)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 25227)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.0ms | Allocations: 26337)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:48:56 +0800
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PasswordResetsController):
+  
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9.1) lib/rack/etag.rb:29:in `call'
+rack (3.0.9.1) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9.1) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:48:56 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 420)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7727)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 7974)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:50:06 +0800
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PasswordResetsController):
+  
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9.1) lib/rack/etag.rb:29:in `call'
+rack (3.0.9.1) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9.1) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:50:06 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 706)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 25407)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms | Allocations: 26474)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:51:20 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 540)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 24831)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms | Allocations: 26108)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:51:57 +0800
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PasswordResetsController):
+  
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9.1) lib/rack/etag.rb:29:in `call'
+rack (3.0.9.1) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9.1) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:51:57 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 719)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 25424)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.0ms | Allocations: 26491)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:52:08 +0800
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PasswordResetsController):
+  
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.9.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.9.1) lib/rack/etag.rb:29:in `call'
+rack (3.0.9.1) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.9.1) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9.1) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9.1) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:52:08 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 420)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 7727)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 7974)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:53:22 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 691)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 25203)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.0ms | Allocations: 26313)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:27 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 7590)
+Completed 200 OK in 22ms (Views: 16.0ms | ActiveRecord: 2.2ms | Allocations: 10500)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:29 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 7511)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.1ms | Allocations: 8361)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:29 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7460)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 8303)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:29 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 7431)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.1ms | Allocations: 8277)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 7430)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 8270)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 7430)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 8267)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 7619)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.1ms | Allocations: 8448)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7511)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.1ms | Allocations: 8355)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 7536)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.1ms | Allocations: 8364)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 7431)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.1ms | Allocations: 8271)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:30 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 7431)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 8289)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:31 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 7430)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 8288)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:53:31 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 7619)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 8460)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:56:28 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 528)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 25330)
+Completed 200 OK in 35ms (Views: 25.0ms | ActiveRecord: 2.1ms | Allocations: 29771)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:56:35 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 411)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 7530)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 7784)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:56:42 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 05:56:42.496251"], ["reset_digest", "$2a$12$olQvmn66MhcwIsnc7J8wxe8xAY0YkjayuBXspbOqn1rNGhRT0zHlm"], ["id", 110]]
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_sent_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 05:56:42.506048"], ["reset_sent_at", "2024-03-18 05:56:42.505651"], ["id", 110]]
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.8ms | Allocations: 295)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | Allocations: 517)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.6ms | Allocations: 172)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.2ms | Allocations: 368)
+UserMailer#password_reset: processed outbound mail in 14.0ms
+Delivered mail 65f7d79a8a05a_e503ffc86119@nicoiscdingsmbp.mail (22.7ms)
+Date: Mon, 18 Mar 2024 13:56:42 +0800
+From: user@realdomain.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f7d79a8a05a_e503ffc86119@nicoiscdingsmbp.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f7d79a88375_e503ffc860dd";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f7d79a88375_e503ffc860dd
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+http://127.0.0.1:3000/password_resets/l2HzFOvOC-rJ7mm7uL764A/edit?email=thenicholashernandez%40gmail.com
+This link will expire in two hours.
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+
+----==_mimepart_65f7d79a88375_e503ffc860dd
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Password reset</h1>
+<p>To reset your password click the link below:</p>
+<a href="http://127.0.0.1:3000/password_resets/l2HzFOvOC-rJ7mm7uL764A/edit?email=thenicholashernandez%40gmail.com">Reset password</a>
+<p>This link will expire in two hours.</p>
+<p>
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+</p>
+  </body>
+</html>
+
+----==_mimepart_65f7d79a88375_e503ffc860dd--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 313ms (ActiveRecord: 8.9ms | Allocations: 37069)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 13:56:42 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1218)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 8557)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 9089)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-18 13:56:44 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1011)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8132)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 8621)
+
+
+Started GET "/contact" for 127.0.0.1 at 2024-03-18 13:56:45 +0800
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.7ms | Allocations: 115)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 7408)
+Completed 200 OK in 20ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 7725)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-03-18 13:56:46 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 641)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 7945)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 8196)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:56:48 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 420)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 7698)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 7948)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:56:52 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 7451)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.1ms | Allocations: 8293)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:58:32 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 713)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 25414)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms | Allocations: 26530)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:36 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 7481)
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 2.3ms | Allocations: 10826)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 7432)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 8315)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 7432)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 8291)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 7620)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 8471)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 7585)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.1ms | Allocations: 8453)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 7432)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 8282)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:58:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@sample.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 7450)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.1ms | Allocations: 8298)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:58:59 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 726)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 25429)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms | Allocations: 26544)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:59:02 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 450)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 7568)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 7817)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:59:04 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 426)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 7544)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 7792)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 13:59:39 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "samopke@sadf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 7667)
+Completed 200 OK in 40ms (Views: 11.6ms | ActiveRecord: 2.1ms | Allocations: 19876)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 13:59:41 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 435)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 7553)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 7801)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:55 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 528)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 426)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 25355)
+Completed 200 OK in 36ms (Views: 30.0ms | ActiveRecord: 1.9ms | Allocations: 29524)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:56 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7430)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 8275)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:56 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 7430)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 8266)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:56 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 7431)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.1ms | Allocations: 8255)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:56 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 7618)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.1ms | Allocations: 8437)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:57 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 7570)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 8418)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:01:57 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 7480)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.1ms | Allocations: 8329)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:02:45 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admh@sdaf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7431)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 8261)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:04:05 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 704)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 25405)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 26520)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:04:09 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms | Allocations: 3167)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:04:09 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1214)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 8389)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 8961)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:04:31 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 704)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 25406)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 26523)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:04:33 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 438)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 7556)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 7804)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:04:37 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 23ms (ActiveRecord: 2.1ms | Allocations: 12069)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:04:37 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1219)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 8591)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 9163)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:04:57 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 727)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 428)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 25423)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.0ms | Allocations: 26540)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:04:58 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 426)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 7544)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 7792)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:05:02 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asfa@sad.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 7480)
+Completed 200 OK in 25ms (Views: 15.2ms | ActiveRecord: 2.6ms | Allocations: 10769)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:07:07 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asfa@sad.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 518)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 25326)
+Completed 200 OK in 33ms (Views: 27.2ms | ActiveRecord: 1.9ms | Allocations: 29557)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:08 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 448)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 7569)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 7822)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:12 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 423)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7729)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 7978)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:07:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 249)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7534)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 8380)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:17 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 436)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7628)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 7876)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:25 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 707)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 25410)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 26527)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:07:29 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/password_resets/new
+Completed 302 Found in 8ms (ActiveRecord: 3.2ms | Allocations: 3163)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:29 +0800
+Processing by PasswordResetsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 439)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 7609)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 7906)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:37 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 432)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 7550)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 7798)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:07:43 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asf2@2.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/password_resets/new
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 727)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:07:43 +0800
+Processing by PasswordResetsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 433)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 7553)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 7806)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:07:55 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:07:55.805856"], ["reset_digest", "$2a$12$SgmYAj/wcHCLq62to2tK7.EJfg1e0P4.K77vdJ4fd8YF7BXefBxiK"], ["id", 110]]
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mUser Update (5.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_sent_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:07:55.815434"], ["reset_sent_at", "2024-03-18 06:07:55.815079"], ["id", 110]]
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 207)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.9ms | Allocations: 428)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.4ms | Allocations: 169)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.1ms | Allocations: 364)
+UserMailer#password_reset: processed outbound mail in 6.5ms
+Delivered mail 65f7da3bce6c8_e503ffc863bf@nicoiscdingsmbp.mail (2.6ms)
+Date: Mon, 18 Mar 2024 14:07:55 +0800
+From: user@realdomain.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f7da3bce6c8_e503ffc863bf@nicoiscdingsmbp.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f7da3bcdeea_e503ffc8626";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f7da3bcdeea_e503ffc8626
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+http://127.0.0.1:3000/password_resets/RhNmQEShUO5rLC40dG7hFw/edit?email=thenicholashernandez%40gmail.com
+This link will expire in two hours.
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+
+----==_mimepart_65f7da3bcdeea_e503ffc8626
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Password reset</h1>
+<p>To reset your password click the link below:</p>
+<a href="http://127.0.0.1:3000/password_resets/RhNmQEShUO5rLC40dG7hFw/edit?email=thenicholashernandez%40gmail.com">Reset password</a>
+<p>This link will expire in two hours.</p>
+<p>
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+</p>
+  </body>
+</html>
+
+----==_mimepart_65f7da3bcdeea_e503ffc8626--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 268ms (ActiveRecord: 13.0ms | Allocations: 31266)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:07:55 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1217)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 8572)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 9101)
+
+
+Started GET "/signup" for 127.0.0.1 at 2024-03-18 14:15:32 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 212)
+  Rendered users/_form.html.erb (Duration: 3.4ms | Allocations: 1894)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2178)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 422)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 26707)
+Completed 200 OK in 46ms (Views: 38.4ms | ActiveRecord: 0.0ms | Allocations: 33783)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:16:18 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 655)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 7967)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 8457)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:16:23 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:16:23.506163"], ["reset_digest", "$2a$12$dIp9d1twIbxMbgijVEIz5eGH.LcUxDCqdjJJB1h0Nc4CYgL9gLDOi"], ["id", 110]]
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_sent_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:16:23.515448"], ["reset_sent_at", "2024-03-18 06:16:23.515136"], ["id", 110]]
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 202)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.9ms | Allocations: 421)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.3ms | Allocations: 167)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.7ms | Allocations: 362)
+UserMailer#password_reset: processed outbound mail in 6.5ms
+Delivered mail 65f7dc3780c28_e503ffc8659e@nicoiscdingsmbp.mail (2.5ms)
+Date: Mon, 18 Mar 2024 14:16:23 +0800
+From: user@realdomain.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f7dc3780c28_e503ffc8659e@nicoiscdingsmbp.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f7dc378046b_e503ffc86477";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f7dc378046b_e503ffc86477
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+http://127.0.0.1:3000/password_resets/KLzsRrpGP9JtK-fOsFTOzw/edit?email=thenicholashernandez%40gmail.com
+This link will expire in two hours.
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+
+----==_mimepart_65f7dc378046b_e503ffc86477
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Password reset</h1>
+<p>To reset your password click the link below:</p>
+<a href="http://127.0.0.1:3000/password_resets/KLzsRrpGP9JtK-fOsFTOzw/edit?email=thenicholashernandez%40gmail.com">Reset password</a>
+<p>This link will expire in two hours.</p>
+<p>
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+</p>
+  </body>
+</html>
+
+----==_mimepart_65f7dc378046b_e503ffc86477--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 249ms (ActiveRecord: 10.5ms | Allocations: 18328)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:16:23 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1217)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 8534)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 9107)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:33:25 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 706)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 25218)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 26431)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:33:26 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 432)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 7738)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 7993)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:33:34 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:33:34.861061"], ["reset_digest", "$2a$12$GLcsr4Bi.8okfdqjdsiiy.9C6Zp64levSVNC/6o4Dhikhg/4ukJyu"], ["id", 110]]
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_sent_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:33:34.863687"], ["reset_sent_at", "2024-03-18 06:33:34.863508"], ["id", 110]]
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 206)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | Allocations: 425)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.5ms | Allocations: 167)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.9ms | Allocations: 362)
+UserMailer#password_reset: processed outbound mail in 6.4ms
+Delivered mail 65f7e03ed5c2e_e5040108672a@nicoiscdingsmbp.mail (2.6ms)
+Date: Mon, 18 Mar 2024 14:33:34 +0800
+From: noreply@example.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f7e03ed5c2e_e5040108672a@nicoiscdingsmbp.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f7e03ed54ec_e50401086611";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f7e03ed54ec_e50401086611
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+http://127.0.0.1:3000/password_resets/avogyjsWxvAFOxnqmKS5Ag/edit?email=thenicholashernandez%40gmail.com
+This link will expire in two hours.
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+
+----==_mimepart_65f7e03ed54ec_e50401086611
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Password reset</h1>
+<p>To reset your password click the link below:</p>
+<a href="http://127.0.0.1:3000/password_resets/avogyjsWxvAFOxnqmKS5Ag/edit?email=thenicholashernandez%40gmail.com">Reset password</a>
+<p>This link will expire in two hours.</p>
+<p>
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+</p>
+  </body>
+</html>
+
+----==_mimepart_65f7e03ed54ec_e50401086611--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 244ms (ActiveRecord: 3.3ms | Allocations: 24417)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:33:34 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1217)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 8583)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 9157)
+
+
+Started GET "/password_resets/avogyjsWxvAFOxnqmKS5Ag/edit?email=thenicholashernandez%40gmail.com" for 127.0.0.1 at 2024-03-18 14:33:45 +0800
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"thenicholashernandez@gmail.com", "id"=>"avogyjsWxvAFOxnqmKS5Ag"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:47:in `get_user'
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 589)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:33:45 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1017)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 8140)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8423)
+
+
+Started GET "/password_resets/avogyjsWxvAFOxnqmKS5Ag/edit?email=thenicholashernandez%40gmail.com" for 127.0.0.1 at 2024-03-18 14:34:10 +0800
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"thenicholashernandez@gmail.com", "id"=>"avogyjsWxvAFOxnqmKS5Ag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:47:in `get_user'
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 552)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:34:10 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1017)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 8140)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 8423)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:39:06 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 438)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7556)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 7812)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:39:11 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thenicholashernandez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_digest" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:39:11.527529"], ["reset_digest", "$2a$12$yDyBjApwIB8Er6qaVLAUJOIx1L5nyUNz3ov8cs8ctE1hggkRVUOpq"], ["id", 110]]
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:79:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "reset_sent_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-03-18 06:39:11.530125"], ["reset_sent_at", "2024-03-18 06:39:11.529906"], ["id", 110]]
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:80:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.2ms | Allocations: 68)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.1ms | Allocations: 60)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.3ms | Allocations: 161)
+UserMailer#password_reset: processed outbound mail in 4.1ms
+Delivered mail 65f7e18f830ed_e5040108698b@nicoiscdingsmbp.mail (3.2ms)
+Date: Mon, 18 Mar 2024 14:39:11 +0800
+From: noreply@example.com
+To: thenicholashernandez@gmail.com
+Message-ID: <65f7e18f830ed_e5040108698b@nicoiscdingsmbp.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65f7e18f82946_e5040108684b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_65f7e18f82946_e5040108684b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+http://127.0.0.1:3000/password_resets/svRDLMQMCUmeheCL4J-R7g/edit?email=thenicholashernandez%40gmail.com
+This link will expire in two hours.
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+
+----==_mimepart_65f7e18f82946_e5040108684b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Password reset</h1>
+<p>To reset your password click the link below:</p>
+<a href="http://127.0.0.1:3000/password_resets/svRDLMQMCUmeheCL4J-R7g/edit?email=thenicholashernandez%40gmail.com">Reset password</a>
+<p>This link will expire in two hours.</p>
+<p>
+If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+</p>
+  </body>
+</html>
+
+----==_mimepart_65f7e18f82946_e5040108684b--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 236ms (ActiveRecord: 1.9ms | Allocations: 15370)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:39:11 +0800
+Processing by StaticPagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1035)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 8376)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 8664)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:51:10 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 722)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 25253)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 26466)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:51:11 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 426)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 7544)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 7798)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:51:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sadf@sadf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7667)
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 1.6ms | Allocations: 10574)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:51:35 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1271)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 420)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 25908)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms | Allocations: 27062)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:51:36 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 678)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 7801)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 8383)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:51:42 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sadfad@sdaf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.7ms | Allocations: 12821)
+
+
+  
+ActionView::MissingTemplate (Missing template password_resets/new_password_reset_path, application/new_password_reset_path with {:locale=>[:en], :formats=>[:turbo_stream, :html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/nicoiscoding/Documents/github/fs2-v3/chptr8/app/views"
+  * "/Users/nicoiscoding/.asdf/installs/ruby/3.3.0/lib/ruby/gems/3.3.0/gems/kaminari-core-1.2.2/app/views"
+  * "/Users/nicoiscoding/.asdf/installs/ruby/3.3.0/lib/ruby/gems/3.3.0/gems/turbo-rails-2.0.4/app/views"
+  * "/Users/nicoiscoding/.asdf/installs/ruby/3.3.0/lib/ruby/gems/3.3.0/gems/actiontext-7.1.3.2/app/views"
+  * "/Users/nicoiscoding/.asdf/installs/ruby/3.3.0/lib/ruby/gems/3.3.0/gems/actionmailbox-7.1.3.2/app/views"
+):
+  
+app/controllers/password_resets_controller.rb:20:in `create'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:52:11 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 706)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 25412)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.0ms | Allocations: 26618)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:52:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 7480)
+Completed 200 OK in 68ms (Views: 17.8ms | ActiveRecord: 2.0ms | Allocations: 19700)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:52:44 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 437)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 7558)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 7812)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:53:26 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 713)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 25108)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.0ms | Allocations: 26319)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:53:29 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 7486)
+Completed 200 OK in 18ms (Views: 11.3ms | ActiveRecord: 1.9ms | Allocations: 10783)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:53:32 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 449)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 7758)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 8013)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:54:02 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 717)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 25349)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 26560)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:54:05 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 7479)
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 1.7ms | Allocations: 10790)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:54:06 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 420)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 7727)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 7982)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-18 14:56:09 +0800
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1270)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 420)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 25936)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.0ms | Allocations: 27088)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:56:13 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 690)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 7813)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 8395)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:56:16 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/password_resets/new
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms | Allocations: 3168)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:56:16 +0800
+Processing by PasswordResetsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 437)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 7795)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 8099)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:57:34 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 707)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 424)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 25335)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.0ms | Allocations: 26546)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:57:38 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asdf@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/password_resets/new
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.8ms | Allocations: 3662)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/password_resets_controller.rb:19:in `create'
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:58:05 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 697)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 426)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 25427)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 26635)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-03-18 14:58:10 +0800
+Processing by PasswordResetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asfd@asdf.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 249)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 7478)
+Completed 200 OK in 20ms (Views: 12.5ms | ActiveRecord: 2.0ms | Allocations: 10827)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-03-18 14:58:12 +0800
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 449)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7569)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 7823)
+
+
